@@ -1,0 +1,55 @@
+<apex:page >
+    <script type="text/javascript">
+        var app = angular.module("Services", [])
+
+        // 共通変数
+        app.factory("fieldHelper", function() {
+            function getWrapper() {
+                return {
+                    isView : {
+                        base : false,
+                        voice : false,
+                        email : false,
+                        task : false
+                    },
+                    isOpen : {
+                        base : true,
+                        voice : true,
+                        email : true,
+                        task : true
+                    }
+                };
+            }
+
+            return {
+                getWrapper: function() {
+                    return getWrapper();
+                }
+            }; 
+        });
+
+        // SLDS_DockedComposerServices
+        app.factory("SLDS_DockedComposerServices", ["$rootScope", function($rootScope) {
+
+            function init(scope) {
+                
+            }
+
+            function clearIsView(scope) {
+                scope.wrapper.isView.base = false;
+                scope.wrapper.isView.voice = false;
+                scope.wrapper.isView.email = false;
+                scope.wrapper.isView.task = false;
+            }
+
+            return {
+                init: function(scope) {
+                    return init(scope);
+                },
+                clearIsView: function(scope) {
+                    return clearIsView(scope);
+                }
+            };
+        }]);
+    </script>
+</apex:page>

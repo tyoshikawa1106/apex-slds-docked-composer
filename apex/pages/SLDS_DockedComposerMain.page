@@ -1,0 +1,22 @@
+<apex:page showHeader="false" applyHtmlTag="false" applyBodyTag="false" standardStylesheets="false">
+    <div class="slds">
+        <!-- Button -->
+        <div class="slds-m-around--large">
+            <button class="slds-button slds-button--brand" ng-click="showBase($event)">Base</button>
+            &nbsp;&nbsp;
+            <button class="slds-button slds-button--brand" ng-click="showVoice($event)">Voice</button>
+            &nbsp;&nbsp;
+            <button class="slds-button slds-button--brand" ng-click="showEmail($event)">Email</button>
+            &nbsp;&nbsp;
+            <button class="slds-button slds-button--brand" ng-click="showTask($event)">Task</button>
+        </div>
+        <!-- Base -->
+        <c:SLDS_DockedComposerBase />
+        <!-- Voice -->
+        <c:SLDS_DockedComposerVoice />
+        <!-- Email -->
+        <c:SLDS_DockedComposerEmail />
+        <!-- Task -->
+        <c:SLDS_DockedComposerTask />
+    </div>
+</apex:page>

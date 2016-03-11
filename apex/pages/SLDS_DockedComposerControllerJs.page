@@ -1,0 +1,122 @@
+<apex:page >
+    <script type="text/javascript">
+        (function(){
+            "use strict";
+
+            var app = angular.module("Controllers", ["Services"]);
+
+            // 例外処理
+            app.factory("$exceptionHandler", function () {
+                return function (exception, cause) {
+                    console.log(exception.message);
+                    var msg = "画面の処理中にエラーが発生しました。" + "ご迷惑をおかけしております。";
+                    alert(msg);
+                };
+            });
+        
+            // SLDS_DockedComposerCtrl
+            app.controller("SLDS_DockedComposerCtrl", ["$scope", "fieldHelper", "SLDS_DockedComposerServices", function($scope, fieldHelper, helper) {
+                try {
+                    // ラッパー
+                    $scope.wrapper = fieldHelper.getWrapper();
+                    // 初期処理
+                    helper.init($scope);
+
+                    $scope.showBase = function(event) {
+                        event.preventDefault();
+                        // 初期化
+                        helper.clearIsView($scope);
+                        // Base表示
+                        $scope.wrapper.isView.base = true;
+                    }
+
+                    $scope.openBase = function(event) {
+                        event.preventDefault();
+                        // Open Base
+                        $scope.wrapper.isOpen.base = true;
+                    }
+
+                    $scope.minimizeBase = function(event) {
+                        event.preventDefault();
+                        // minimize Base
+                        $scope.wrapper.isOpen.base = false;
+                    }
+
+                    $scope.showVoice = function(event) {
+                        event.preventDefault();
+                        // 初期化
+                        helper.clearIsView($scope);
+                        // Voice表示
+                        $scope.wrapper.isView.voice = true;
+                    }
+
+                    $scope.openVoice = function(event) {
+                        event.preventDefault();
+                        // Open Voice
+                        $scope.wrapper.isOpen.voice = true;
+                    }
+
+                    $scope.minimizeVoice = function(event) {
+                        event.preventDefault();
+                        // minimize Voice
+                        $scope.wrapper.isOpen.voice = false;
+                    }
+
+                    $scope.showEmail = function(event) {
+                        event.preventDefault();
+                        // 初期化
+                        helper.clearIsView($scope);
+                        // Email表示
+                        $scope.wrapper.isView.email = true;
+                    }
+
+                    $scope.openEmail = function(event) {
+                        event.preventDefault();
+                        // Open Email
+                        $scope.wrapper.isOpen.email = true;
+                    }
+
+                    $scope.minimizeEmail = function(event) {
+                        event.preventDefault();
+                        // minimize Email
+                        $scope.wrapper.isOpen.email = false;
+                    }
+
+                    $scope.showTask = function(event) {
+                        event.preventDefault();
+                        // 初期化
+                        helper.clearIsView($scope);
+                        // Task表示
+                        $scope.wrapper.isView.task = true;
+                    }
+
+                    $scope.openTask = function(event) {
+                        event.preventDefault();
+                        // Open Task
+                        $scope.wrapper.isOpen.task = true;
+                    }
+
+                    $scope.minimizeTask = function(event) {
+                        event.preventDefault();
+                        // minimize Task
+                        $scope.wrapper.isOpen.task = false;
+                    }
+
+                    $scope.closeDocked = function(event) {
+                        event.preventDefault();
+                        // 初期化
+                        helper.clearIsView($scope);
+                    }
+
+                    $scope.showFuture = function(event) {
+                        event.preventDefault();
+                        console.log('comming soon...');
+                    }
+
+                } catch (e) {
+                    throw e;
+                }
+            }]);
+        })();
+    </script>
+</apex:page>

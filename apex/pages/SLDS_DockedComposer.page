@@ -1,0 +1,16 @@
+<apex:page showHeader="true" sidebar="false">
+    <!-- AngularJS -->
+    <apex:includeScript value="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.min.js" />
+    <apex:includeScript value="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-route.js" />
+    <apex:includeScript value="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-messages.js" />
+    <!-- Lightning Design System -->
+    <apex:stylesheet value="{!URLFOR($Resource.SLDS100, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />
+    <!-- Main -->
+    <div ng-app="myApp">
+        <div ng-view="true" autoscroll="true"></div>
+    </div>
+    <!-- Page Script -->
+    <apex:include pageName="SLDS_DockedComposerAppJs" />
+    <apex:include pageName="SLDS_DockedComposerControllerJs" />
+    <apex:include pageName="SLDS_DockedComposerServicesJs" />
+</apex:page>
