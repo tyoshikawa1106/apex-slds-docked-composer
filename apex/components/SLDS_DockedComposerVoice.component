@@ -1,0 +1,58 @@
+<apex:component >
+    <div ng-class="{'slds-hide':!wrapper.isView.voice}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <!-- Docked Composer -->
+        <div class="slds-docked_container">
+            <div class="slds-docked-composer slds-grid slds-grid--vertical slds-nowrap" ng-class="{'slds-is-open':wrapper.isOpen.voice}">
+                <div class="slds-docked-composer__header slds-grid slds-grid--align-spread slds-shrink-none">
+                    <div class="slds-media slds-media--center">
+                        <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon-standard-call">
+                                <svg aria-hidden="true" class="slds-icon slds-icon--small">
+                                    <use xlink:href="/resource/SLDS100/assets/icons/standard-sprite/svg/symbols.svg#call"></use>
+                                </svg>
+                                <span class="slds-assistive-text">Call Icon</span>
+                            </span>
+                        </div>
+                        <div class="slds-media__body">Lei Chan - Connecting...</div>
+                    </div>
+                    <div class="slds-docked-composer__actions">
+                        <button class="slds-button slds-button--icon-bare slds-button--icon-inverse" ng-click="minimizeVoice($event)">
+                            <svg aria-hidden="true" class="slds-button__icon">
+                                <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#minimize_window"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Minimize window</span>
+                        </button>
+                        <button class="slds-button slds-button--icon-bare slds-button--icon-inverse" ng-click="openVoice($event)">
+                            <svg aria-hidden="true" class="slds-button__icon">
+                                <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#expand_alt"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Expand Composer</span>
+                        </button>
+                        <button class="slds-button slds-button--icon-bare slds-button--icon-inverse" ng-click="closeDocked($event)">
+                            <svg aria-hidden="true" class="slds-button__icon">
+                                <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="slds-docked-composer__body slds-col slds-grid slds-grid--vertical slds-nowrap slds-grid--align-center">
+                    <div class="slds-text-align--center slds-scrollable--y">
+                        <span class="slds-avatar slds-avatar--large">
+                            <img src="/resource/SLDS100/assets/images/avatar2.jpg" alt="Lei Chan" />
+                        </span>
+                        <h3 class="slds-text-heading--large">Lei Chan</h3>
+                        <ul class="slds-list--horizontal slds-grid--align-center slds-has-dividers--right slds-text-body--small">
+                            <li class="slds-list__item">VP of Sales</li>
+                            <li class="slds-list__item ">Acme Corporation</li>
+                        </ul>
+                        <p class="slds-text-heading--medium slds-m-top--medium">Connecting...</p>
+                    </div>
+                </div>
+                <div class="slds-docked-composer__footer slds-shrink-none" ng-click="showFuture($event)">
+                    <button class="slds-button slds-button--destructive slds-size--1-of-1" ng-click="showFuture($event)">End Call</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</apex:component>

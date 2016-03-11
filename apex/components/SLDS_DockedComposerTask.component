@@ -1,0 +1,116 @@
+<apex:component >
+    <div ng-class="{'slds-hide':!wrapper.isView.task}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <!-- Docked Composer -->
+        <div class="slds-docked_container">
+            <div class="slds-docked-composer slds-grid slds-grid--vertical slds-nowrap" ng-class="{'slds-is-open':wrapper.isOpen.task}">
+                <div class="slds-docked-composer__header slds-grid slds-grid--align-spread slds-shrink-none">
+                    <div class="slds-media slds-media--center">
+                        <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon-standard-task">
+                                <svg aria-hidden="true" class="slds-icon slds-icon--small">
+                                    <use xlink:href="/resource/SLDS100/assets/icons/standard-sprite/svg/symbols.svg#task"></use>
+                                </svg>
+                                <span class="slds-assistive-text">Task Icon</span>
+                            </span>
+                        </div>
+                        <div class="slds-media__body">New Task</div>
+                    </div>
+                    <div class="slds-docked-composer__actions">
+                        <button class="slds-button slds-button--icon-bare slds-button--icon-inverse" ng-click="minimizeTask($event)">
+                            <svg aria-hidden="true" class="slds-button__icon">
+                                <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#minimize_window"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Minimize window</span>
+                        </button>
+                        <button class="slds-button slds-button--icon-bare slds-button--icon-inverse" ng-click="openTask($event)">
+                            <svg aria-hidden="true" class="slds-button__icon">
+                                <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#expand_alt"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Expand Composer</span>
+                        </button>
+                        <button class="slds-button slds-button--icon-bare slds-button--icon-inverse" ng-click="closeDocked($event)">
+                            <svg aria-hidden="true" class="slds-button__icon">
+                                <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="slds-docked-composer__body slds-docked-composer__body--form slds-col slds-grid slds-grid--vertical slds-nowrap">
+                    <fieldset class="slds-form--compound">
+                        <legend class="slds-assistive-text">Log new task</legend>
+                        <div class="form-element__group">
+                            <div class="slds-form-element__row">
+                                <div class="slds-form-element">
+                                    <label class="slds-form-element__label" for="text-input-01">Subject</label>
+                                    <div class="slds-form-element__control">
+                                        <input class="slds-input" type="text" id="text-input-01" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-form-element__row">
+                                <div class="slds-form-element slds-size--1-of-2">
+                                    <label class="slds-form-element__label" for="text-input-01">Assigned To</label>
+                                    <div class="slds-form-element__control">
+                                        <input class="slds-input" type="text" id="text-input-01" />
+                                    </div>
+                                </div>
+                                <div class="slds-form-element slds-size--1-of-2">
+                                    <label class="slds-form-element__label" for="text-input-01">Due Dates</label>
+                                    <div class="slds-form-element__control">
+                                        <input class="slds-input" type="text" id="text-input-01" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-form-element__row">
+                                <div class="slds-form-element slds-lookup slds-size--1-of-2" data-select="multi" data-scope="multi">
+                                    <label class="slds-form-element__label" for="lookup-01">Name</label>
+                                    <div class="slds-form-element__control lookup__search-control slds-grid slds-box--border">
+                                        <div class="slds-dropdown-trigger slds-dropdown-trigger--click slds-align-middle slds-m-left--x-small slds-shrink-none">
+                                            <svg aria-hidden="true" class="slds-icon slds-icon-standard-account slds-icon--small">
+                                                <use xlink:href="/resource/SLDS100/assets/icons/standard-sprite/svg/symbols.svg#account"></use>
+                                            </svg>
+                                            <button class="slds-button slds-button--icon-bare slds-button-space-left slds-shrink-none">
+                                                <svg aria-hidden="true" class="slds-button__icon">
+                                                    <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                                                </svg>
+                                                <span class="slds-assistive-text">Filter</span>
+                                            </button>
+                                        </div>
+                                        <div class="slds-grid slds-grow">
+                                            <input id="lookup-01" class="lookup__search-input slds-input--bare slds-grow" type="text" aria-autocomplete="list" role="combobox" aria-expanded="true" aria-activedescendant="" placeholder="Search Leads" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-form-element slds-lookup slds-size--1-of-2" data-select="multi" data-scope="multi">
+                                    <label class="slds-form-element__label" for="lookup-02">Related To</label>
+                                    <div class="slds-form-element__control lookup__search-control slds-grid slds-box--border">
+                                        <div class="slds-dropdown-trigger slds-dropdown-trigger--click slds-align-middle slds-m-left--x-small slds-shrink-none">
+                                            <svg aria-hidden="true" class="slds-icon slds-icon-standard-account slds-icon--small">
+                                                <use xlink:href="/resource/SLDS100/assets/icons/standard-sprite/svg/symbols.svg#account"></use>
+                                            </svg>
+                                            <button class="slds-button slds-button--icon-bare slds-button-space-left slds-shrink-none">
+                                                <svg aria-hidden="true" class="slds-button__icon">
+                                                    <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                                                </svg>
+                                                <span class="slds-assistive-text">Filter</span>
+                                            </button>
+                                        </div>
+                                        <div class="slds-grid slds-grow">
+                                            <input id="lookup-02" class="lookup__search-input slds-input--bare slds-grow" type="text" aria-autocomplete="list" role="combobox" aria-expanded="true" aria-activedescendant="" placeholder="Search Accounts" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="slds-docked-composer__footer slds-shrink-none">
+                    <div class="slds-float--right slds-grid slds-grid--align-end slds-size--1-of-2 slds-text-align--right">
+                        <button class="slds-button slds-button--brand" ng-click="showFuture($event)">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</apex:component>

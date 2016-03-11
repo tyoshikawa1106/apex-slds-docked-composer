@@ -1,0 +1,193 @@
+<apex:component >
+    <div ng-class="{'slds-hide':!wrapper.isView.email}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <!-- Docked Composer -->
+        <div class="slds-docked_container">
+            <div class="slds-docked-composer slds-grid slds-grid--vertical slds-nowrap" ng-class="{'slds-is-open':wrapper.isOpen.email}">
+                <div class="slds-docked-composer__header slds-grid slds-grid--align-spread slds-shrink-none">
+                    <div class="slds-media slds-media--center">
+                        <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon-standard-email">
+                                <svg aria-hidden="true" class="slds-icon slds-icon--small">
+                                    <use xlink:href="/resource/SLDS100/assets/icons/standard-sprite/svg/symbols.svg#email"></use>
+                                </svg>
+                                <span class="slds-assistive-text">Email Icon</span>
+                            </span>
+                        </div>
+                        <div class="slds-media__body">New Email</div>
+                    </div>
+                    <div class="slds-docked-composer__actions">
+                        <button class="slds-button slds-button--icon-bare slds-button--icon-inverse" ng-click="minimizeEmail($event)">
+                            <svg aria-hidden="true" class="slds-button__icon">
+                                <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#minimize_window"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Minimize window</span>
+                        </button>
+                        <button class="slds-button slds-button--icon-bare slds-button--icon-inverse" ng-click="openEmail($event)">
+                            <svg aria-hidden="true" class="slds-button__icon">
+                                <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#expand_alt"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Expand Composer</span>
+                        </button>
+                        <button class="slds-button slds-button--icon-bare slds-button--icon-inverse" ng-click="closeDocked($event)">
+                            <svg aria-hidden="true" class="slds-button__icon">
+                                <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="slds-docked-composer__body slds-docked-composer__body--email slds-col slds-grid slds-grid--vertical slds-nowrap">
+                    <div class="slds-grid slds-grid--align-spread">
+                        <div class="slds-grid slds-grow slds-p-horizontal--small">
+                            <label class="slds-email-composer__label slds-align-middle" for="emailComposerTo">To</label>
+                            <input class="slds-input--bare slds-input--height slds-hide" id="emailComposerTo" type="text" />
+                            <div class="slds-pill_container--bare slds-show">
+                                <a href="#void" class="slds-pill">
+                                    <svg aria-hidden="true" class="slds-icon slds-icon-standard-account slds-pill__icon">
+                                        <use xlink:href="/resource/SLDS100/assets/icons/standard-sprite/svg/symbols.svg#account"></use>
+                                    </svg>
+                                    <span class="slds-pill__label">Lei Chan</span>
+                                        <button class="slds-button slds-button--icon-bare slds-pill__remove">
+                                        <svg aria-hidden="true" class="slds-button__icon">
+                                            <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                                        </svg>
+                                        <span class="slds-assistive-text">Remove Pill</span>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="slds-grid slds-shrink-none slds-p-horizontal--small">
+                            <button class="slds-button">Cc</button>
+                            <button class="slds-button">Bcc</button>
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-p-horizontal--small">
+                        <label class="slds-email-composer__label slds-align-middle" for="emailComposerCc">Cc</label>
+                        <input class="slds-input--bare slds-input--height" id="emailComposerCc" type="text" />
+                        <div class="slds-pill_container--bare slds-hide"></div>
+                    </div>
+                    <div class="slds-grid slds-p-horizontal--small slds-hide">
+                        <label class="slds-email-composer__label slds-align-middle" for="emailComposerBcc">Bcc</label>
+                        <input class="slds-input--bare slds-input--height" id="emailComposerBcc" type="text" />
+                        <div class="slds-pill_container--bare slds-hide"></div>
+                    </div>
+                    <label class="slds-assistive-text" for="subject-1">Enter subject</label>
+                    <input id="subject-1" class="slds-input" placeholder="Enter Subject" />
+                    <div class="slds-docked-composer__toolbar slds-shrink-none slds-grid slds-grid--align-spread">
+                        <div class="slds-grid">
+                            <div class="slds-button-group slds-picklist slds-picklist--fluid slds-shrink-none">
+                                <button class="slds-button slds-button--neutral slds-picklist__label picklist__label--small" ng-click="showFuture($event)">Font
+                                    <svg aria-hidden="true" class="slds-icon slds-icon--small">
+                                        <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="slds-button-group slds-picklist slds-picklist--fluid slds-shrink-none">
+                                <button class="slds-button slds-button--neutral slds-picklist__label picklist__label--small">14
+                                    <svg aria-hidden="true" class="slds-icon slds-icon--small">
+                                        <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="slds-button-group" role="group">
+                                <button class="slds-button slds-button--icon-border-filled" ng-click="showFuture($event)">
+                                    <svg aria-hidden="true" class="slds-button__icon">
+                                        <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#bold"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Bold</span>
+                                </button>
+                                <button class="slds-button slds-button--icon-border-filled" ng-click="showFuture($event)">
+                                    <svg aria-hidden="true" class="slds-button__icon">
+                                        <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#italic"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Italic</span>
+                                </button>
+                                <button class="slds-button slds-button--icon-border-filled" ng-click="showFuture($event)">
+                                    <svg aria-hidden="true" class="slds-button__icon">
+                                        <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#underline"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Underline</span>
+                                </button>
+                            </div>
+                            <div class="slds-button-group" role="group">
+                                <button class="slds-button slds-button--icon-border-filled" ng-click="showFuture($event)">
+                                    <svg aria-hidden="true" class="slds-button__icon">
+                                        <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#richtextnumberedlist"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Numbered List</span>
+                                </button>
+                                <button class="slds-button slds-button--icon-border-filled" ng-click="showFuture($event)">
+                                    <svg aria-hidden="true" class="slds-button__icon">
+                                        <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#richtextbulletedlist"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Bulleted List</span>
+                                </button>
+                                <button class="slds-button slds-button--icon-border-filled" ng-click="showFuture($event)">
+                                    <svg aria-hidden="true" class="slds-button__icon">
+                                        <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#left_align_text"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Left Align Text</span>
+                                </button>
+                                <button class="slds-button slds-button--icon-border-filled" ng-click="showFuture($event)">
+                                    <svg aria-hidden="true" class="slds-button__icon">
+                                        <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#center_align_text"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Center Align Text</span>
+                                </button>
+                                <button class="slds-button slds-button--icon-border-filled" ng-click="showFuture($event)">
+                                    <svg aria-hidden="true" class="slds-button__icon">
+                                        <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#right_align_text"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Right Align Text</span>
+                                </button>
+                                <button class="slds-button slds-button--icon-border-filled" ng-click="showFuture($event)">
+                                    <svg aria-hidden="true" class="slds-button__icon">
+                                        <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#link"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Link</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <label class="slds-assistive-text" for="composer-text-input-1">Compose email</label>
+                    <textarea id="composer-text-input-1" class="slds-docked-composer__input slds-input--bare slds-text-longform slds-grow" placeholder="Compose email..."></textarea>
+                </div>
+                <div class="slds-docked-composer__footer slds-shrink-none">
+                    <div class="slds-float--right slds-grid slds-grid--align-end slds-size--1-of-2 slds-text-align--right">
+                        <button class="slds-button slds-button--icon-container" ng-click="showFuture($event)">
+                            <svg aria-hidden="true" class="slds-button__icon">
+                                <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#link"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Attach File</span>
+                        </button>
+                        <button class="slds-button slds-button--icon-container" ng-click="showFuture($event)">
+                            <svg aria-hidden="true" class="slds-button__icon">
+                                <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#insert_template"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Insert Template</span>
+                        </button>
+                        <button class="slds-button slds-button--icon-container" ng-click="showFuture($event)">
+                            <svg aria-hidden="true" class="slds-button__icon">
+                                <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#insert_tag_field"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Insert HTML</span>
+                        </button>
+                        <button class="slds-button slds-button--icon-container" ng-click="showFuture($event)">
+                            <svg aria-hidden="true" class="slds-button__icon">
+                                <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#preview"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Preview</span>
+                        </button>
+                        <button class="slds-button slds-button--icon-container" ng-click="showFuture($event)">
+                            <svg aria-hidden="true" class="slds-button__icon">
+                                <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#delete"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Delete</span>
+                        </button>
+                        <button class="slds-button slds-button--brand" ng-click="showFuture($event)">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</apex:component>

@@ -1,0 +1,48 @@
+<apex:component >
+    <div ng-class="{'slds-hide':!wrapper.isView.base}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <!-- Docked Composer -->
+        <div class="slds-docked_container">
+            <div class="slds-docked-composer slds-grid slds-grid--vertical slds-nowrap" ng-class="{'slds-is-open':wrapper.isOpen.base}">
+                <div class="slds-docked-composer__header slds-grid slds-grid--align-spread slds-shrink-none">
+                    <div class="slds-media slds-media--center">
+                        <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon-standard-call">
+                                <svg aria-hidden="true" class="slds-icon slds-icon--small">
+                                    <use xlink:href="/resource/SLDS100/assets/icons/standard-sprite/svg/symbols.svg#call"></use>
+                                </svg>
+                            <span class="slds-assistive-text">Call Icon</span>
+                        </span>
+                    </div>
+                    <div class="slds-media__body">Header</div>
+                </div>
+                <div class="slds-docked-composer__actions">
+                    <button class="slds-button slds-button--icon-bare slds-button--icon-inverse" ng-click="minimizeBase($event)">
+                        <svg aria-hidden="true" class="slds-button__icon">
+                            <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#minimize_window"></use>
+                        </svg>
+                        <span class="slds-assistive-text">Minimize window</span>
+                    </button>
+                    <button class="slds-button slds-button--icon-bare slds-button--icon-inverse" ng-click="openBase($event)">
+                        <svg aria-hidden="true" class="slds-button__icon">
+                            <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#expand_alt"></use>
+                        </svg>
+                        <span class="slds-assistive-text">Expand Composer</span>
+                    </button>
+                    <button class="slds-button slds-button--icon-bare slds-button--icon-inverse" ng-click="closeDocked($event)">
+                        <svg aria-hidden="true" class="slds-button__icon">
+                            <use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                        </svg>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                </div>
+            </div>
+            <div class="slds-docked-composer__body slds-col slds-grid slds-grid--vertical slds-nowrap slds-size--1-of-1"></div>
+                <div class="slds-docked-composer__footer slds-shrink-none">
+                    <div class="slds-float--right slds-grid slds-grid--align-end slds-size--1-of-2 slds-text-align--right">
+                        <button class="slds-button slds-button--brand" ng-click="showFuture($event)">Action</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</apex:component>
